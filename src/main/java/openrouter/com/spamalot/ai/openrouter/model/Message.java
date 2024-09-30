@@ -1,10 +1,9 @@
 package openrouter.com.spamalot.ai.openrouter.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import java.time.Instant;
 import java.util.List;
 import java.util.Map;
-
-import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Message {
   @JsonProperty("characterId")

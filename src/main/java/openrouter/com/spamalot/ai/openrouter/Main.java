@@ -1,19 +1,15 @@
-
 package openrouter.com.spamalot.ai.openrouter;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import com.fasterxml.jackson.databind.ObjectMapper;
-
-import openrouter.com.spamalot.ai.openrouter.model.Root;
 import openrouter.com.spamalot.ai.openrouter.model.Character;
 import openrouter.com.spamalot.ai.openrouter.model.Message;
+import openrouter.com.spamalot.ai.openrouter.model.Root;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class Main {
   private static final Logger logger = LoggerFactory.getLogger(Main.class);

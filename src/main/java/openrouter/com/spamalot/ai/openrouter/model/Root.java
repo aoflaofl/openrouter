@@ -1,8 +1,7 @@
 package openrouter.com.spamalot.ai.openrouter.model;
 
-import java.util.Map;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
+import java.util.Map;
 
 public class Root {
   @JsonProperty("version")
