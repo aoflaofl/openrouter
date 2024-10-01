@@ -1,13 +1,13 @@
-package openrouter.com.spamalot.ai.openrouter;
+package com.spamalot.ai.openrouter;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.spamalot.ai.openrouter.model.Character;
+import com.spamalot.ai.openrouter.model.Message;
+import com.spamalot.ai.openrouter.model.Root;
 import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
-import openrouter.com.spamalot.ai.openrouter.model.Character;
-import openrouter.com.spamalot.ai.openrouter.model.Message;
-import openrouter.com.spamalot.ai.openrouter.model.Root;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

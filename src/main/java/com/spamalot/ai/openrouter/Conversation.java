@@ -1,11 +1,11 @@
-package openrouter.com.spamalot.ai.openrouter;
+package com.spamalot.ai.openrouter;
 
+import com.spamalot.ai.openrouter.model.Character;
+import com.spamalot.ai.openrouter.model.Message;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-import openrouter.com.spamalot.ai.openrouter.model.Character;
-import openrouter.com.spamalot.ai.openrouter.model.Message;
 
 public class Conversation {
 

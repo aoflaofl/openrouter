@@ -1,4 +1,4 @@
-package openrouter.com.spamalot.ai.openrouter.model;
+package com.spamalot.ai.openrouter.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
