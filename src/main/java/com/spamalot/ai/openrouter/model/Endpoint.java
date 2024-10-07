@@ -66,6 +66,12 @@ class Endpoint {
   @JsonProperty("pricing")
   private Pricing pricing;
 
+  @JsonProperty("url")
+  private String url;
+
+  @JsonProperty("supports_tools")
+  private boolean supportsTools;
+
   // Getters and setters
   // (omitted for brevity, but you should include them)
 }

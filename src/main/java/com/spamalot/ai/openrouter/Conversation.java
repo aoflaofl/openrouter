@@ -2,13 +2,20 @@ package com.spamalot.ai.openrouter;
 
 import com.spamalot.ai.openrouter.model.Character;
 import com.spamalot.ai.openrouter.model.Message;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class Conversation {
 
+  private static final Logger LOGGER = LoggerFactory.getLogger(Conversation.class);
   Character character;
   List<Message> messages = new ArrayList<>();
 
@@ -18,7 +25,8 @@ public class Conversation {
   }
 
   void addMessage(Message message) {
-
+    // LOGGER.info("Adding message: {} {} {}", message.getUpdatedAt(),
+    // message.getContent(), message.getCharacterId());
     this.messages.add(message);
   }
 
@@ -32,22 +40,25 @@ public class Conversation {
     return messages;
   }
 
-  public void printItOut() {
+  public void printItOut(PrintWriter writer) {
 
-    System.out.println("## Model: " + character.getModelInfo().getName());
-    System.out.println("* * *");
+    writer.println("## Model: " + character.getModelInfo().getName());
+    writer.println("* * *");
 
     Collections.sort(messages, Comparator.comparing(Message::getUpdatedAtInstant));
 
     for (Message message : messages) {
-      System.out.println();
+      writer.println();
       if (message.getCharacterId().equals("USER")) {
-        System.out.println("### " + message.getCharacterId());
+        writer.print("### " + message.getCharacterId());
       } else {
-        System.out.println("### " + character.getModelInfo().getShortName());
+        writer.print("### " + character.getModelInfo().getShortName());
       }
-      System.out.println();
-      System.out.println(message.getContent());
+
+      writer.println(" (Time: " + message.getUpdatedAt() + ")");
+
+      writer.println(message.getContent());
+      LOGGER.info("Writing message: {} {} {}", message.getUpdatedAt(), message.getContent(), message.getCharacterId());
     }
   }
 }

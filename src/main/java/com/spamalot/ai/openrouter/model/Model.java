@@ -69,6 +69,27 @@ class Model {
   @JsonProperty("variant")
   private String variant;
 
+  @JsonProperty("endpoint")
+  private Endpoint endpoint;
+
+  @JsonProperty("deleted")
+  private boolean deleted;
+
+  @JsonProperty("deprecated")
+  private boolean deprecated;
+
+  @JsonProperty("experimental")
+  private boolean experimental;
+  
+  @JsonProperty("weight_url")
+  private String weightUrl;
+
+  @JsonProperty("default_transforms")
+  private String[] defaultTransforms;
+
+  @JsonProperty("versions")
+  private String[] versions;
+
   // Getters and setters
   // (omitted for brevity, but you should include them)
 }

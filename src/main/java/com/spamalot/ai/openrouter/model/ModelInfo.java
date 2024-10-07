@@ -69,6 +69,27 @@ public class ModelInfo {
   @JsonProperty("endpoint")
   private Endpoint endpoint;
 
+  @JsonProperty("variant")
+  private String variant;
+
+  @JsonProperty("deleted")
+  private boolean deleted;
+
+  @JsonProperty("deprecated")
+  private boolean deprecated;
+
+  @JsonProperty("experimental")
+  private boolean experimental;
+
+  @JsonProperty("weight_url")
+  private String weightUrl;
+
+  @JsonProperty("default_transforms")
+  private String[] defaultTransforms;
+
+  @JsonProperty("versions")
+  private String[] versions;
+
   public String getName() {
 
     return name;

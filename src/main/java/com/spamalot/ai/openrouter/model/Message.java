@@ -24,6 +24,12 @@ public class Message {
   @JsonProperty("attachments")
   private List<String> attachments;
 
+  @JsonProperty("isGenerating")
+  private boolean isGenerating;
+  
+  @JsonProperty("isRetrying")
+  private boolean isRetrying;
+  
   public String getCharacterId() {
 
     return characterId;
