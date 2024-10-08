@@ -10,6 +10,9 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -31,9 +34,15 @@ public class Main {
       } else {
         String mdFile = changeJsonToMd(jsonFile);
         try (PrintWriter writer = new PrintWriter(new BufferedWriter(new FileWriter(mdFile)))) {
+          List<Conversation> conversationList = new ArrayList<>(conversations.values());
+          for (Conversation entry : conversationList) {
+            LOGGER.info("getFirstAiResponseTime: {}", entry.getFirstAiResponseTime());
+          }
 
-          for (Map.Entry<String, Conversation> entry : conversations.entrySet()) {
-            entry.getValue().printItOut(writer);
+          Collections.sort(conversationList, Comparator.comparing(Conversation::getFirstAiResponseTime));
+
+          for (Conversation entry : conversationList) {
+            entry.printItOut(writer);
           }
         } catch (IOException e) {
           LOGGER.error("Error writing to file: {}", mdFile, e);
@@ -134,7 +143,6 @@ public class Main {
       String characterId = msgValue.getCharacterId();
 
       LOGGER.info("Character: {}", characterId);
-//      LOGGER.info("Content: {}", msgValue.getContent());
 
       if (characterId.equals("USER")) {
         for (Map.Entry<String, Conversation> entry2 : conversations.entrySet()) {
@@ -142,6 +150,7 @@ public class Main {
         }
       } else {
         conversations.get(characterId).addMessage(msgValue);
+
       }
     }
   }
