@@ -66,6 +66,7 @@ class Conversation {
       writer.println(" (Time: " + message.getUpdatedAt() + ")");
 
       writer.println(message.getContent());
+      writer.println();
       LOGGER.info("Writing message: {} {} {}", message.getUpdatedAt(), message.getContent(), message.getCharacterId());
     }
   }
